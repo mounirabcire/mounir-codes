@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Raleway:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        cursor: none;
+    }
+
+    html {
+        @apply bg-white;
+        @apply font-body;
+        font-size: clamp(1em, 0.625vw + 0.8313em, 1.1875em);
+    }
+
+    body {
+        @apply bg-white;
+        @apply font-body;
+        overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-title;
+    }
+
+    h1 {
+        font-size: 75px;
+        line-height: 1;
+    }
+
+    h2 {
+        font-size: 45.9903px;
+        line-height: 1;
+    }
+
+    h3 {
+        font-size: 34.2527px;
+        line-height: 1;
+    }
+
+    h4 {
+        font-size: 25.5108px;
+        line-height: 1;
+    }
+
+    small {
+        font-size: 14.1509px;
+        line-height: 1;
+    }
+
+    /* Header Componenet */
+    .header {
+        height: 100dvh;
+    }
+
+    /* Navbar Componenet */
+    .menu {
+        position: relative;
+        width: 50px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border: 1px solid; */
+        z-index: 20;
+    }
+
+    .menu::before {
+        content: "";
+        width: 20px;
+        height: 2px;
+        top: calc(50% + 3px);
+        transform: translateY(-50%);
+        transition: all 0.3s linear .3s;
+        @apply absolute block bg-black rounded-sm;
+    }
+
+    .menu::after {
+        content: "";
+        width: 30px;
+        height: 2px;
+        top: calc(50% - 3px);
+        transform: translateY(-50%);
+        transition: all 0.3s linear .3s;
+        @apply absolute block bg-black rounded-sm;
+    }
+
+    .menu.active::before {
+        content: "";
+        width: 20px;
+        height: 2px;
+        top: calc(50%);
+        transform: rotate(-45deg);
+        transition: all 0.3s linear .3s;
+        @apply absolute block bg-white rounded-sm;
+    }
+
+    .menu.active::after {
+        content: "";
+        width: 20px;
+        height: 2px;
+        top: calc(50%);
+        transform: rotate(45deg);
+        transition: all 0.3s linear .3s;
+        @apply absolute block bg-white rounded-sm;
+    }
+
+    .links {
+        top: 0;
+        right: 0px;
+        @apply pl-15 absolute overflow-hidden rounded-lg bg-black text-white flex flex-col gap-20 justify-center items-start;
+    }
+
+    .links div {
+        @apply relative p-1;
+    }
+
+    .links div::after {
+        content: "";
+        width: 5px;
+        height: 5px;
+        transition: all 0.4s;
+        @apply absolute -bottom-5 left-1/2 -translate-x-1/2 block rounded-full bg-white;
+    }
+
+    .links div:hover::after {
+        width: 100%;
+        pointer-events: none;
+    }
+}
