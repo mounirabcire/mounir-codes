@@ -1,11 +1,12 @@
-import { Route, Routes } from "react-router-dom";
-import Homepage from "./pages/Homepage";
-import { useMouseAnimation } from "./hooks/useMouseAnimation";
-import { useMousePosition } from "./hooks/useMousePosition";
-import { motion } from "framer-motion";
+import { createContext, useContext } from "react";
+import { useMouseAnimation } from "../hooks/useMouseAnimation";
+import { useMousePosition } from "../hooks/useMousePosition";
 
-function App() {
-    const { mouseAnim, updateMouseAnim } = useMouseAnimation();
+const MouseContext = createContext();
+
+function MouseProvider({ children }) {
+    const { mouseEvents } = useMouseAnimation();
+    const { mouseAnim } = useMouseAnimation();
     const [x, y] = useMousePosition();
 
     const animMouse = (variants) => {
@@ -41,20 +42,19 @@ function App() {
     };
 
     return (
-        <>
-            <motion.div
-                {...animMouse(mouseMove)}
-                className={`pointer-events-none fixed left-0 top-0 z-50 h-[37px] w-[37px] rounded-full bg-black`}
-            />
-            <Routes>
-                <Route
-                    index
-                    path="/"
-                    element={<Homepage updateMouseAnim={updateMouseAnim} />}
-                />
-            </Routes>
-        </>
+        <MouseContext.Provider value={{ mouseEvents, animMouse, mouseMove }}>
+            {children}
+        </MouseContext.Provider>
     );
 }
 
-export default App;
+function useMouse() {
+    const context = useContext(MouseContext);
+
+    if (!context) {
+        throw new Error("useMouse must be used within a MouseProvider");
+    }
+    return context;
+}
+
+export { MouseProvider, useMouse };

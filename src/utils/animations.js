@@ -7,6 +7,18 @@ export const anim = (variants) => {
     };
 };
 
+// Mouse animation
+export const mouseEvents = (customFunction) => {
+    return {
+        onMouseEnter() {
+            customFunction("in");
+        },
+        onMouseLeave() {
+            customFunction("out");
+        },
+    };
+};
+
 // Header Component
 export const expand = {
     initial: {

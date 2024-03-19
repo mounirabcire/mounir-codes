@@ -37,17 +37,17 @@
     }
 
     h2 {
-        font-size: 45.9903px;
+        font-size: 50px;
         line-height: 1;
     }
 
     h3 {
-        font-size: 34.2527px;
+        font-size: 36px;
         line-height: 1;
     }
 
     h4 {
-        font-size: 25.5108px;
+        font-size: 26px;
         line-height: 1;
     }
 
@@ -56,12 +56,12 @@
         line-height: 1;
     }
 
-    /* Header Componenet */
+    /* *********** Header Componenet *********** */
     .header {
-        height: 100dvh;
+        height: 100svh;
     }
 
-    /* Navbar Componenet */
+    /* *********** Navbar Componenet *********** */
     .menu {
         position: relative;
         width: 50px;
@@ -79,8 +79,8 @@
         height: 2px;
         top: calc(50% + 3px);
         transform: translateY(-50%);
-        transition: all 0.3s linear .3s;
-        @apply absolute block bg-black rounded-sm;
+        transition: all 0.3s linear 0.3s;
+        @apply absolute block rounded-sm bg-black;
     }
 
     .menu::after {
@@ -89,8 +89,8 @@
         height: 2px;
         top: calc(50% - 3px);
         transform: translateY(-50%);
-        transition: all 0.3s linear .3s;
-        @apply absolute block bg-black rounded-sm;
+        transition: all 0.3s linear 0.3s;
+        @apply absolute block rounded-sm bg-black;
     }
 
     .menu.active::before {
@@ -99,8 +99,8 @@
         height: 2px;
         top: calc(50%);
         transform: rotate(-45deg);
-        transition: all 0.3s linear .3s;
-        @apply absolute block bg-white rounded-sm;
+        transition: all 0.3s linear 0.3s;
+        @apply absolute block rounded-sm bg-white;
     }
 
     .menu.active::after {
@@ -109,14 +109,14 @@
         height: 2px;
         top: calc(50%);
         transform: rotate(45deg);
-        transition: all 0.3s linear .3s;
-        @apply absolute block bg-white rounded-sm;
+        transition: all 0.3s linear 0.3s;
+        @apply absolute block rounded-sm bg-white;
     }
 
     .links {
         top: 0;
         right: 0px;
-        @apply pl-15 absolute overflow-hidden rounded-lg bg-black text-white flex flex-col gap-20 justify-center items-start;
+        @apply absolute flex flex-col items-start justify-center gap-20 overflow-hidden rounded-lg bg-black pl-15 text-white;
     }
 
     .links div {
@@ -128,11 +128,46 @@
         width: 5px;
         height: 5px;
         transition: all 0.4s;
-        @apply absolute -bottom-5 left-1/2 -translate-x-1/2 block rounded-full bg-white;
+        @apply absolute -bottom-5 left-1/2 block -translate-x-1/2 rounded-full bg-white;
     }
 
     .links div:hover::after {
         width: 100%;
         pointer-events: none;
+    }
+
+    /* *********** About Component *********** */
+    .multiBtn {
+        position: relative;
+        z-index: 5;
+        cursor: none;
+    }
+
+    .multiBtn::after {
+        content: "";
+        z-index: -1;
+        transition:
+            left 0.1s ease,
+            top 0.1s ease;
+        @apply absolute left-[8px] top-[8px] block h-full w-full border border-2 border-black;
+    }
+
+    .multiBtn:active::after {
+        @apply left-0 top-0;
+    }
+
+    .subHead {
+        position: relative;
+        z-index: 5;
+    }
+
+    .subHead::after {
+        content: "";
+        z-index: -1;
+        @apply absolute bottom-5 left-0 block h-10 w-full bg-brown-light;
+    }
+
+    .skill {
+        @apply flex h-[34px] w-[118px] items-center justify-center border border-black;
     }
 }
