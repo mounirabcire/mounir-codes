@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { anim, open, openChild } from "../utils/animations";
 import { mouseEvents } from "../utils/animations";
@@ -24,10 +24,25 @@ function NavBar({ updateMouseAnim }) {
                         {isOpen && (
                             <motion.div {...anim(open)} className="links">
                                 <motion.div variants={openChild}>
-                                    <Link>projects</Link>
+                                    <NavLink
+                                        to="/"
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        home
+                                    </NavLink>
                                 </motion.div>
                                 <motion.div variants={openChild}>
-                                    <Link>contact</Link>
+                                    <NavLink
+                                        to="/projects"
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        projects
+                                    </NavLink>
+                                </motion.div>
+                                <motion.div variants={openChild}>
+                                    <NavLink onClick={() => setIsOpen(false)}>
+                                        contact
+                                    </NavLink>
                                 </motion.div>
                             </motion.div>
                         )}

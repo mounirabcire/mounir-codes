@@ -136,6 +136,8 @@
         pointer-events: none;
     }
 
+    
+
     /* *********** About Component *********** */
     .multiBtn {
         position: relative;
@@ -167,7 +169,5 @@
         @apply absolute bottom-5 left-0 block h-10 w-full bg-brown-light;
     }
 
-    .skill {
-        @apply flex h-[34px] w-[118px] items-center justify-center border border-black;
-    }
+   
 }

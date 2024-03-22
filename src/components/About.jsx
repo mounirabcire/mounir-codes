@@ -1,5 +1,15 @@
 import { mouseEvents } from "../utils/animations";
 import Container from "./Container";
+import TechList from "./TechList";
+
+const skills = [
+    "HTML",
+    "CSS",
+    "tailwindcss",
+    "JavaScript",
+    "React",
+    "Framer Motion",
+];
 
 function About({ updateMouseAnim }) {
     return (
@@ -59,7 +69,10 @@ function About({ updateMouseAnim }) {
                                 what i do
                             </h1>
                         </div>
-                        <div className="space-y-40">
+                        <div
+                            {...mouseEvents(updateMouseAnim)}
+                            className="space-y-40"
+                        >
                             <div className="mx-auto space-y-10 lg:max-w-[848px]">
                                 <h3 className="subHead inline-block capitalize">
                                     web design
@@ -72,10 +85,15 @@ function About({ updateMouseAnim }) {
                                     your website is up to that standard.
                                 </p>
                                 <div className="inline-block">
-                                    <div className="skill">Figma</div>
+                                    <div className="flex h-[34px] min-w-[118px] flex-1 items-center justify-center border border-black px-5 lg:flex-none">
+                                        Figma
+                                    </div>
                                 </div>
                             </div>
-                            <div className="mx-auto space-y-10 lg:max-w-[848px]">
+                            <div
+                                {...mouseEvents(updateMouseAnim)}
+                                className="mx-auto space-y-10 lg:max-w-[848px]"
+                            >
                                 <h3 className="subHead inline-block capitalize">
                                     front-end development
                                 </h3>
@@ -87,13 +105,7 @@ function About({ updateMouseAnim }) {
                                     to edit website content quickly and easily.
                                 </p>
                                 <div className="flex items-center justify-center">
-                                    <div className="flex flex-wrap items-center gap-10">
-                                        <div className="skill">HTML</div>
-                                        <div className="skill">CSS</div>
-                                        <div className="skill">tailwindcss</div>
-                                        <div className="skill">JavaScript</div>
-                                        <div className="skill">React</div>
-                                    </div>
+                                    <TechList tech={skills} />
                                 </div>
                             </div>
                         </div>

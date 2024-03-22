@@ -82,7 +82,7 @@ export const open = {
     },
     animate: {
         width: 150,
-        height: 170,
+        height: 190,
         transition: {
             ease: [0.85, 0, 0.15, 1],
             duration: 0.7,
@@ -113,5 +113,37 @@ export const openChild = {
     exit: {
         x: "30px",
         opacity: 0,
+    },
+};
+
+// Page transition
+export const exitPage = {
+    initial: {
+        scaleY: 0,
+    },
+    animate: {
+        scaleY: 0,
+    },
+    exit: {
+        scaleY: 1,
+        transition: {
+            ease: [0.33, 1, 0.68, 1],
+            duration: 0.6,
+            delay: 0.5,
+        },
+    },
+};
+
+export const enterPage = {
+    initial: {
+        scaleY: 1,
+    },
+    animate: {
+        scaleY: 0,
+        transition: {
+            ease: [0.33, 1, 0.68, 1],
+            duration: 0.6,
+            delay: 0.5,
+        },
     },
 };

@@ -1,10 +1,12 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import { useMouseAnimation } from "./hooks/useMouseAnimation";
 import { useMousePosition } from "./hooks/useMousePosition";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import Projects from "./pages/Projects";
 
 function App() {
+    const location = useLocation();
     const { mouseAnim, updateMouseAnim } = useMouseAnimation();
     const [x, y] = useMousePosition();
 
@@ -44,15 +46,22 @@ function App() {
         <>
             <motion.div
                 {...animMouse(mouseMove)}
+                
                 className={`pointer-events-none fixed left-0 top-0 z-50 h-[37px] w-[37px] rounded-full bg-black`}
             />
-            <Routes>
-                <Route
-                    index
-                    path="/"
-                    element={<Homepage updateMouseAnim={updateMouseAnim} />}
-                />
-            </Routes>
+            <AnimatePresence mode="wait">
+                <Routes location={location} key={location.pathname}>
+                    <Route
+                        index
+                        path="/"
+                        element={<Homepage updateMouseAnim={updateMouseAnim} />}
+                    />
+                    <Route
+                        path="projects"
+                        element={<Projects updateMouseAnim={updateMouseAnim} />}
+                    />
+                </Routes>
+            </AnimatePresence>
         </>
     );
 }

@@ -14,7 +14,7 @@ import NavBar from "./NavBar";
 
 const letters = ["front-end", "web-designer", "freelancer", "content-creator"];
 
-function Header({updateMouseAnim}) {
+function Header({ updateMouseAnim }) {
     const [currentLetter, setCurrentLetter] = useState(0);
 
     //  When the currentLetter is 4 it'll set immdediatly to 0,
@@ -37,15 +37,10 @@ function Header({updateMouseAnim}) {
         return () => clearInterval(set);
     }, [currentLetter]);
 
-
     return (
         <header className="header overflow-hidden text-black">
-            {/* <motion.div
-                {...animMouse(mouseMove)}
-                className={`pointer-events-none fixed left-0 top-0 z-50 h-[37px] w-[37px] rounded-full bg-black`}
-            /> */}
+            <NavBar updateMouseAnim={updateMouseAnim} />
             <Container className="relative h-full">
-                <NavBar updateMouseAnim={updateMouseAnim} />
                 <section className="flex h-full flex-col items-center justify-center text-center uppercase">
                     <div
                         {...mouseEvents(updateMouseAnim)}
