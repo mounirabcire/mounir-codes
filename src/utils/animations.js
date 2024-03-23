@@ -62,14 +62,14 @@ export const balanceChildren = {
         y: 0,
         transition: {
             duration: 0.6,
-            ease: [0.68, -0.6, 0.32, 1.6],
+            ease: [0.33, 1, 0.68, 1],
         },
     },
     exit: {
-        y: "-200px",
+        y: "100px",
         transition: {
             duration: 0.6,
-            ease: [0.68, -0.6, 0.32, 1.6],
+            ease: [1, 0.68, 1, 0.33],
         },
     },
 };
@@ -81,8 +81,8 @@ export const open = {
         height: 0,
     },
     animate: {
-        width: 150,
-        height: 190,
+        width: 170,
+        height: 210,
         transition: {
             ease: [0.85, 0, 0.15, 1],
             duration: 0.7,

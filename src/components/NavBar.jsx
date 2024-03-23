@@ -11,36 +11,54 @@ function NavBar({ updateMouseAnim }) {
 
     return (
         <Container className="fixed left-1/2 top-0 z-40 -translate-x-1/2 bg-transparent backdrop-blur-sm">
-            <nav className="flex w-full items-center justify-between py-20">
+            <nav className="flex w-full items-center justify-between py-20 text-black dark:text-white">
                 <div {...mouseEvents(updateMouseAnim)}>
-                    <h3 className="text-[18px]">mounir.codes</h3>
+                    <h3 className="text-small">mounir.codes</h3>
                 </div>
                 <div {...mouseEvents(updateMouseAnim)} className="relative">
                     <div
                         onClick={() => setIsOpen((prev) => !prev)}
-                        className={`menu ${isOpen === true ? "active" : ""}`}
+                        className={`menu ${isOpen === true ? "active" : ""} cursor-pointer`}
                     />
                     <AnimatePresence>
                         {isOpen && (
-                            <motion.div {...anim(open)} className="links">
-                                <motion.div variants={openChild}>
+                            <motion.div
+                                {...anim(open)}
+                                className="links text-small capitalize"
+                            >
+                                <motion.div
+                                    variants={openChild}
+                                    className="cursor-auto"
+                                >
                                     <NavLink
                                         to="/"
                                         onClick={() => setIsOpen(false)}
+                                        className="cursor-pointer"
                                     >
                                         home
                                     </NavLink>
                                 </motion.div>
-                                <motion.div variants={openChild}>
+                                <motion.div
+                                    variants={openChild}
+                                    className="cursor-auto"
+                                >
                                     <NavLink
                                         to="/projects"
                                         onClick={() => setIsOpen(false)}
+                                        className="cursor-pointer"
                                     >
                                         projects
                                     </NavLink>
                                 </motion.div>
-                                <motion.div variants={openChild}>
-                                    <NavLink onClick={() => setIsOpen(false)}>
+                                <motion.div
+                                    variants={openChild}
+                                    className="cursor-auto"
+                                >
+                                    <NavLink
+                                        to="/contact"
+                                        onClick={() => setIsOpen(false)}
+                                        className="cursor-pointer"
+                                    >
                                         contact
                                     </NavLink>
                                 </motion.div>

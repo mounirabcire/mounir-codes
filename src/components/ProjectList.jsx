@@ -22,11 +22,15 @@ const projects = [
     },
 ];
 
-function ProjectList() {
+function ProjectList({ updateMouseAnim }) {
     return (
         <div className="space-y-10 text-start text-white">
             {projects.map((project, i) => (
-                <ProjectItem project={project} key={i} />
+                <ProjectItem
+                    project={project}
+                    key={i}
+                    updateMouseAnim={updateMouseAnim}
+                />
             ))}
         </div>
     );

@@ -36,9 +36,10 @@ export default {
         extend: {
             fontSize: {
                 xl: "100px",
-                '2xl': "200px",
+                "2xl": "200px",
                 small: "14px",
                 smaller: "11px",
+                smallest: "8px",
             },
             spacing: {
                 5: "5px",
@@ -66,4 +67,5 @@ export default {
         },
     },
     plugins: [],
+    darkMode: "class",
 };

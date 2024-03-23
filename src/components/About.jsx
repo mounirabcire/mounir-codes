@@ -1,8 +1,13 @@
-import { mouseEvents } from "../utils/animations";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { anim, mouseEvents } from "../utils/animations";
 import Container from "./Container";
 import TechList from "./TechList";
+import instaSvg from "../../public/assets/instagram.svg";
+import gitSvg from "../../public/assets/github.svg";
 
-const skills = [
+const p_skills = [
     "HTML",
     "CSS",
     "tailwindcss",
@@ -10,12 +15,42 @@ const skills = [
     "React",
     "Framer Motion",
 ];
+const d_skills = ["Figma"];
 
 function About({ updateMouseAnim }) {
+    const [isOpen, setIsOpen] = useState(false);
+    const openSM = {
+        initial: { height: 40 },
+        animate: { height: isOpen ? 130 : 40 },
+    };
+
+    const rotate = {
+        initial: { rotate: 0 },
+        animate: {
+            rotate: isOpen ? "45deg" : "0deg",
+        },
+    };
+
+    const showSMParent = {
+        transition: {
+            staggerChildren: 0.1,
+        },
+    };
+
+    const showSMChildren = {
+        initial: { x: 100, opacity: 0 },
+        animate: { x: 0, opacity: 1 },
+        exit: { x: -100, opacity: 0 },
+        transition: {
+            ease: [0.33, 1, 0.68, 1],
+            duration: 0.6,
+        },
+    };
+
     return (
         <main>
             <Container>
-                <section className="flex h-screen flex-col items-center justify-center space-y-40 text-center">
+                <section className="flex h-screen flex-col items-center justify-center space-y-40 text-center text-black dark:text-white">
                     <div className="space-y-20">
                         <div
                             {...mouseEvents(updateMouseAnim)}
@@ -24,7 +59,7 @@ function About({ updateMouseAnim }) {
                             <h1 className="relative z-10 text-[60px] font-light sm:text-[75px] lg:text-xl 2xl:text-2xl">
                                 who am i
                             </h1>
-                            <h1 className="absolute left-10 top-5 w-full text-[60px] font-light text-brown-light sm:text-[75px] lg:top-10 lg:text-xl 2xl:left-20  2xl:text-2xl">
+                            <h1 className="absolute left-10 top-5 w-full text-[60px] font-light text-brown-light dark:text-brown-dark sm:text-[75px] lg:top-10 lg:text-xl 2xl:left-20  2xl:text-2xl">
                                 who am i
                             </h1>
                         </div>
@@ -32,7 +67,7 @@ function About({ updateMouseAnim }) {
                             {...mouseEvents(updateMouseAnim)}
                             className="mx-auto lg:max-w-[848px]"
                         >
-                            <p className="font-medium leading-[180%]">
+                            <p className="font-light leading-[180%]">
                                 Hey there, I'm Mounir – your go-to web designer
                                 and React front-end developer. 🚀 Specializing
                                 in crafting stunning landing pages, websites,
@@ -46,17 +81,63 @@ function About({ updateMouseAnim }) {
                     </div>
                     <div
                         {...mouseEvents(updateMouseAnim)}
-                        className="flex items-center gap-30 font-medium text-brown-light"
+                        className={`flex ${isOpen ? "items-start" : "items-center"} gap-30 text-brown-light dark:text-brown-dark`}
                     >
-                        <button className="multiBtn h-[55px] w-[155px] bg-black">
-                            see my work
+                        <button className="multiBtn h-[55px] w-[155px] bg-black dark:bg-white">
+                            <Link to="/projects" className="cursor-pointer p-5">
+                                see my work
+                            </Link>
                         </button>
-                        <div className="flex h-40 w-40 items-center justify-center rounded-full bg-black text-[23px]">
-                            +
-                        </div>
+                        <motion.div
+                            {...anim(openSM)}
+                            className="h-40 w-40 rounded-full border-2 border-black text-[23px] dark:border-white"
+                        >
+                            <motion.span
+                                onClick={() => setIsOpen((pre) => !pre)}
+                                {...anim(rotate)}
+                                className="cursor-pointer p-5"
+                            >
+                                +
+                            </motion.span>
+                            <AnimatePresence>
+                                {isOpen && (
+                                    <motion.div
+                                        className="space-y-10 overflow-hidden"
+                                        {...anim(showSMParent)}
+                                    >
+                                        <motion.a
+                                            {...anim(showSMChildren)}
+                                            className="mx-auto inline-block cursor-pointer"
+                                            href="https://github.com/mounirabcire"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <img
+                                                src={gitSvg}
+                                                alt="github"
+                                                className="h-20 w-20 cursor-pointer"
+                                            />
+                                        </motion.a>
+                                        <motion.a
+                                            {...anim(showSMChildren)}
+                                            className="mx-auto inline-block cursor-pointer"
+                                            href="https://www.instagram.com/mounir.codes"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <img
+                                                src={instaSvg}
+                                                alt="instagram"
+                                                className="h-20 w-20 cursor-pointer"
+                                            />
+                                        </motion.a>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </motion.div>
                     </div>
                 </section>
-                <section className="flex h-screen flex-col items-center justify-center space-y-40 text-center">
+                <section className="flex min-h-[150vh] flex-col items-center justify-center space-y-40 text-center text-black dark:text-white">
                     <div className="space-y-20">
                         <div
                             {...mouseEvents(updateMouseAnim)}
@@ -65,7 +146,7 @@ function About({ updateMouseAnim }) {
                             <h1 className="relative z-10 text-[60px] font-light sm:text-[75px] lg:text-xl 2xl:text-2xl">
                                 what i do
                             </h1>
-                            <h1 className="absolute left-10 top-5 w-full text-[60px] font-light text-brown-light sm:text-[75px] lg:top-10 lg:text-xl 2xl:left-20  2xl:text-2xl">
+                            <h1 className="absolute left-10 top-5 w-full text-[60px] font-light text-brown-light dark:text-brown-dark sm:text-[75px] lg:top-10 lg:text-xl 2xl:left-20  2xl:text-2xl">
                                 what i do
                             </h1>
                         </div>
@@ -74,10 +155,10 @@ function About({ updateMouseAnim }) {
                             className="space-y-40"
                         >
                             <div className="mx-auto space-y-10 lg:max-w-[848px]">
-                                <h3 className="subHead inline-block capitalize">
+                                <h4 className="subHead inline-block capitalize">
                                     web design
-                                </h3>
-                                <p className="font-medium leading-[180%]">
+                                </h4>
+                                <p className="font-light leading-[180%]">
                                     I design beautiful and powerful websites for
                                     modern businesses. Any business today needs
                                     a website that wins customers’ trust and
@@ -85,19 +166,17 @@ function About({ updateMouseAnim }) {
                                     your website is up to that standard.
                                 </p>
                                 <div className="inline-block">
-                                    <div className="flex h-[34px] min-w-[118px] flex-1 items-center justify-center border border-black px-5 lg:flex-none">
-                                        Figma
-                                    </div>
+                                    <TechList tech={d_skills} />
                                 </div>
                             </div>
                             <div
                                 {...mouseEvents(updateMouseAnim)}
                                 className="mx-auto space-y-10 lg:max-w-[848px]"
                             >
-                                <h3 className="subHead inline-block capitalize">
+                                <h4 className="subHead inline-block capitalize">
                                     front-end development
-                                </h3>
-                                <p className="font-medium leading-[180%]">
+                                </h4>
+                                <p className="font-light leading-[180%]">
                                     I build websites in Webflow where I can
                                     create responsive, powerful and fully custom
                                     websites. Plus, Webflow has an incredibly
@@ -105,12 +184,13 @@ function About({ updateMouseAnim }) {
                                     to edit website content quickly and easily.
                                 </p>
                                 <div className="flex items-center justify-center">
-                                    <TechList tech={skills} />
+                                    <TechList tech={p_skills} />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+                
             </Container>
         </main>
     );
