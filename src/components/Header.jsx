@@ -50,7 +50,7 @@ function Header({ updateMouseAnim }) {
                             <h1 className="relative z-10 font-light lg:text-xl 2xl:text-2xl">
                                 <span>hey, i'm</span> <span>mounir</span>
                             </h1>
-                            <h1 className="absolute left-10 top-5 w-full font-light text-brown-light lg:top-10 lg:text-xl 2xl:left-20 2xl:text-2xl  dark:text-brown-dark">
+                            <h1 className="absolute left-10 top-5 w-full font-light text-brown-light dark:text-brown-dark lg:top-10 lg:text-xl 2xl:left-20  2xl:text-2xl">
                                 <span>hey, i'm</span> <span>mounir</span>
                             </h1>
                         </div>
@@ -59,7 +59,7 @@ function Header({ updateMouseAnim }) {
                                 <motion.p
                                     {...anim(balanceParent)}
                                     key={currentLetter}
-                                    className="overflow-hidden text-smaller tracking-[10px]"
+                                    className="overflow-hidden text-smaller tracking-[10px] lg:text-small"
                                 >
                                     {letter.map((char, i) => (
                                         <motion.span
@@ -79,7 +79,7 @@ function Header({ updateMouseAnim }) {
                     {...mouseEvents(updateMouseAnim)}
                     className="scroll absolute bottom-15 right-[1rem] sm:right-[2rem] lg:right-[4rem] xl:right-[5rem] 2xl:right-[6rem]"
                 >
-                    <p className="text-smaller">
+                    <p className="text-smaller lg:text-small">
                         {"SCROLL".split("").map((char, i) => (
                             <span key={i} className="block rotate-90">
                                 {char}

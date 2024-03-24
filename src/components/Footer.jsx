@@ -1,26 +1,17 @@
+import { Link } from "react-router-dom";
 import { mouseEvents } from "../utils/animations";
-import instaSvg from "../../public/assets/instagram.svg";
-import gitSvg from "../../public/assets/github.svg";
+import { useDarkMode } from "../contexts/DarkModeContexte";
 import Container from "./Container";
+import Svg from "./Svg";
 
 function Footer({ updateMouseAnim }) {
+    const { darkMode } = useDarkMode();
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="text-center text-black dark:text-white">
-            <Container className="space-y-40">
-                <div className="space-y-20">
-                    <div
-                        {...mouseEvents(updateMouseAnim)}
-                        className="relative inline-block uppercase"
-                    >
-                        <h1 className="relative z-10 text-[60px] font-light sm:text-[75px] lg:text-xl 2xl:text-2xl">
-                            contact
-                        </h1>
-                        <h1 className="absolute left-10 top-5 w-full text-[60px] font-light text-brown-light dark:text-brown-dark sm:text-[75px] lg:top-10 lg:text-xl 2xl:left-20  2xl:text-2xl">
-                            contact
-                        </h1>
-                    </div>
+        <footer className="mt-[60px] text-center text-black dark:text-white">
+            <Container className="space-y-20">
+                <div className="space-y-10">
                     <div
                         {...mouseEvents(updateMouseAnim)}
                         className="flex items-center justify-center gap-10"
@@ -31,10 +22,10 @@ function Footer({ updateMouseAnim }) {
                             target="_blank"
                             rel="noreferrer"
                         >
-                            <img
-                                src={gitSvg}
-                                alt="github"
-                                className="h-20 w-20 cursor-pointer"
+                            <Svg
+                                color={darkMode ? "#FEFAE0" : "#0D0701"}
+                                type="github"
+                                className="size-20 cursor-pointer"
                             />
                         </a>
                         <a
@@ -43,17 +34,39 @@ function Footer({ updateMouseAnim }) {
                             target="_blank"
                             rel="noreferrer"
                         >
-                            <img
-                                src={instaSvg}
-                                alt="instagram"
-                                className="h-20 w-20 cursor-pointer"
+                            <Svg
+                                color={darkMode ? "#FEFAE0" : "#0D0701"}
+                                type="instagram"
+                                className="size-20 cursor-pointer"
+                            />
+                        </a>
+                        <a
+                            className="cursor-pointer"
+                            href="mailto:mounirwebdevcode@gmail.com"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <Svg
+                                color={darkMode ? "#FEFAE0" : "#0D0701"}
+                                type="mail"
+                                className="size-20 cursor-pointer"
                             />
                         </a>
                     </div>
                 </div>
-                <div {...mouseEvents(updateMouseAnim)}>
-                    <p className="pb-5 text-small font-light">
-                        &copy; {currentYear} Mounir Front-end Developer
+                <div {...mouseEvents(updateMouseAnim)} className="space-y-5">
+                    <p className="text-small">
+                        want to send a message from{" "}
+                        <Link
+                            to="/contact"
+                            className="cursor-pointer underline"
+                        >
+                            here
+                        </Link>
+                        ?
+                    </p>
+                    <p className="pb-5 text-smaller lg:text-small">
+                        &copy; {currentYear} mounir.codes Front-end Developer
                     </p>
                 </div>
             </Container>

@@ -2,10 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { anim, mouseEvents } from "../utils/animations";
+
 import Container from "./Container";
 import TechList from "./TechList";
-import instaSvg from "../../public/assets/instagram.svg";
-import gitSvg from "../../public/assets/github.svg";
+import Svg from "./Svg";
+import { useDarkMode } from "../contexts/DarkModeContexte";
 
 const p_skills = [
     "HTML",
@@ -19,9 +20,11 @@ const d_skills = ["Figma"];
 
 function About({ updateMouseAnim }) {
     const [isOpen, setIsOpen] = useState(false);
+    const { darkMode } = useDarkMode();
+
     const openSM = {
         initial: { height: 40 },
-        animate: { height: isOpen ? 130 : 40 },
+        animate: { height: isOpen ? 160 : 40 },
     };
 
     const rotate = {
@@ -32,8 +35,11 @@ function About({ updateMouseAnim }) {
     };
 
     const showSMParent = {
+        initial: { x: 0 },
+        amimate: { x: 0 },
         transition: {
-            staggerChildren: 0.1,
+            when: "beforeChildren",
+            staggerChildren: 0.2,
         },
     };
 
@@ -112,10 +118,14 @@ function About({ updateMouseAnim }) {
                                             target="_blank"
                                             rel="noreferrer"
                                         >
-                                            <img
-                                                src={gitSvg}
-                                                alt="github"
-                                                className="h-20 w-20 cursor-pointer"
+                                            <Svg
+                                                color={
+                                                    darkMode
+                                                        ? "#FEFAE0"
+                                                        : "#0D0701"
+                                                }
+                                                type="github"
+                                                className="size-20 cursor-pointer"
                                             />
                                         </motion.a>
                                         <motion.a
@@ -125,10 +135,31 @@ function About({ updateMouseAnim }) {
                                             target="_blank"
                                             rel="noreferrer"
                                         >
-                                            <img
-                                                src={instaSvg}
-                                                alt="instagram"
-                                                className="h-20 w-20 cursor-pointer"
+                                            <Svg
+                                                color={
+                                                    darkMode
+                                                        ? "#FEFAE0"
+                                                        : "#0D0701"
+                                                }
+                                                type="instagram"
+                                                className="size-20 cursor-pointer"
+                                            />
+                                        </motion.a>
+                                        <motion.a
+                                            {...anim(showSMChildren)}
+                                            className="mx-auto inline-block cursor-pointer"
+                                            href="mailto:mounirwebdevcode@gmail.com"
+                                            target="_blank"
+                                            rel="noreferrer"
+                                        >
+                                            <Svg
+                                                color={
+                                                    darkMode
+                                                        ? "#FEFAE0"
+                                                        : "#0D0701"
+                                                }
+                                                type="mail"
+                                                className="size-20 cursor-pointer"
                                             />
                                         </motion.a>
                                     </motion.div>
@@ -137,7 +168,7 @@ function About({ updateMouseAnim }) {
                         </motion.div>
                     </div>
                 </section>
-                <section className="flex min-h-[150vh] flex-col items-center justify-center space-y-40 text-center text-black dark:text-white">
+                <section className="flex min-h-screen flex-col items-center justify-center space-y-40 text-center text-black dark:text-white">
                     <div className="space-y-20">
                         <div
                             {...mouseEvents(updateMouseAnim)}
@@ -190,7 +221,6 @@ function About({ updateMouseAnim }) {
                         </div>
                     </div>
                 </section>
-                
             </Container>
         </main>
     );

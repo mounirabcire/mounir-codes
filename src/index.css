@@ -190,11 +190,6 @@
         @apply pointer-events-none absolute left-0 top-0 text-smaller tracking-[5px] xl:text-small;
     }
 
-    /* .inputText:focus,
-    .inputText:valid {
-        @apply ;
-    } */
-
     .inputText:focus ~ span,
     .inputText:valid ~ span {
         @apply text-smallest -translate-y-15 bg-black px-5 text-white dark:bg-white dark:text-black;

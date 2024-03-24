@@ -5,6 +5,7 @@ import Container from "../components/Container";
 import NavBar from "../components/NavBar";
 import PageTransition from "../components/PageTransition";
 import ProjectList from "../components/ProjectList";
+import Footer from "../components/Footer";
 
 function Projects({ updateMouseAnim }) {
     return (
@@ -13,7 +14,7 @@ function Projects({ updateMouseAnim }) {
                 {...anim(enterPage)}
                 className="pointer-events-none fixed left-0 top-0 z-50 h-screen w-screen origin-bottom bg-black dark:bg-white"
             />
-            <main className="bg-white pb-20 pt-[165px] dark:bg-black">
+            <main className="bg-white pt-[165px] dark:bg-black">
                 <NavBar updateMouseAnim={updateMouseAnim} />
                 <Container>
                     <section className="min-h-screen space-y-40 text-center text-black dark:text-white">
@@ -45,6 +46,7 @@ function Projects({ updateMouseAnim }) {
                         </div>
                         <ProjectList updateMouseAnim={updateMouseAnim} />
                     </section>
+                    <Footer updateMouseAnim={updateMouseAnim} />
                 </Container>
             </main>
         </PageTransition>

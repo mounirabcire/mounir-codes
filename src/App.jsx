@@ -10,16 +10,13 @@ import Projects from "./pages/Projects";
 import nightSvg from "../public/assets/night.svg";
 import lightSvg from "../public/assets/brightness.svg";
 import Contact from "./pages/Contact";
+import { useDarkMode } from "./contexts/DarkModeContexte";
 
 function App() {
-    const [darkMode, setDarkMode] = useState(false);
     const location = useLocation();
+    const { darkMode, handleDarkMode } = useDarkMode();
     const { mouseAnim, updateMouseAnim } = useMouseAnimation();
     const [x, y] = useMousePosition();
-
-    function handleDarkMode() {
-        setDarkMode((prev) => !prev);
-    }
 
     const animMouse = (variants) => {
         return {

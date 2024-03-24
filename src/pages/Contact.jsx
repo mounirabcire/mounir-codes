@@ -1,14 +1,57 @@
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { useDarkMode } from "../contexts/DarkModeContexte";
 import { anim, enterPage, mouseEvents } from "../utils/animations";
 import Container from "../components/Container";
-
-import instaSvg from "../../public/assets/instagram.svg";
-import gitSvg from "../../public/assets/github.svg";
 import PageTransition from "../components/PageTransition";
 import NavBar from "../components/NavBar";
+import Svg from "../components/Svg";
 
 function Contact({ updateMouseAnim }) {
+    const form = useRef(null);
+    const { darkMode } = useDarkMode();
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+    const [sending, setSending] = useState(false);
     const currentYear = new Date().getFullYear();
+
+    function emptyStates() {
+        setUsername("");
+        setEmail("");
+        setMessage("");
+        setSending(false);
+    }
+
+    function sendEmail(e) {
+        e.preventDefault();
+        setSending(true);
+
+        if (
+            username.trim() === "" ||
+            email.trim() === "" ||
+            message.trim() === ""
+        ) {
+            alert("Please fill in all fields");
+            emptyStates();
+            return;
+        }
+        emailjs
+            .sendForm(
+                "service_t3yztyg",
+                "template_23xy5nq",
+                form.current,
+                "CXO_7BtFH0n7tAUzR",
+            )
+            .then(
+                (result) => {
+                    emptyStates();
+                    alert("Message sent successfully!");
+                },
+                (err) => alert(err),
+            );
+    }
 
     return (
         <PageTransition>
@@ -34,50 +77,61 @@ function Contact({ updateMouseAnim }) {
                             </div>
                             <form
                                 {...mouseEvents(updateMouseAnim)}
+                                onSubmit={sendEmail}
                                 className="form space-y-20"
                                 id="contact-form"
+                                ref={form}
                             >
                                 <div className="space-y-5">
                                     <h4 className="text-small font-bold lg:font-bold">
                                         let's have a chat!
                                     </h4>
-                                    <p className="mx-auto max-w-[400px]  text-smaller leading-[180%] lg:text-small">
+                                    <p className="mx-auto text-smaller leading-[180%] lg:text-small">
                                         I'm currently open for new
                                         opportunities.
                                     </p>
                                 </div>
                                 <div className="inputBox">
                                     <input
+                                        value={username}
+                                        onChange={(e) =>
+                                            setUsername(e.target.value)
+                                        }
                                         className="inputText"
                                         type="text"
                                         name="user_name"
-                                        id="contact-name"
                                         required
                                     />
                                     <span>FULL NAME</span>
                                 </div>
                                 <div className="inputBox">
                                     <input
+                                        value={email}
+                                        onChange={(e) =>
+                                            setEmail(e.target.value)
+                                        }
                                         className="inputText"
                                         type="email"
                                         name="user_email"
-                                        id="contact-email"
                                         required
                                     />
                                     <span>EMAIL</span>
                                 </div>
                                 <div className="inputBox">
                                     <textarea
+                                        value={message}
+                                        onChange={(e) =>
+                                            setMessage(e.target.value)
+                                        }
                                         className="inputText msgArea"
                                         name="user_message"
-                                        id="contact-message"
                                         required
                                     />
                                     <span>MESSAGE</span>
                                 </div>
                                 <input
                                     type="submit"
-                                    value="SUBMIT"
+                                    value={sending ? "sending..." : "send"}
                                     className="submitBox"
                                 />
                             </form>
@@ -93,10 +147,10 @@ function Contact({ updateMouseAnim }) {
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    <img
-                                        src={gitSvg}
-                                        alt="github"
-                                        className="h-20 w-20 cursor-pointer"
+                                    <Svg
+                                        color={darkMode ? "#FEFAE0" : "#0D0701"}
+                                        type="github"
+                                        className="size-20 cursor-pointer"
                                     />
                                 </a>
                                 <a
@@ -105,15 +159,27 @@ function Contact({ updateMouseAnim }) {
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    <img
-                                        src={instaSvg}
-                                        alt="instagram"
-                                        className="h-20 w-20 cursor-pointer"
+                                    <Svg
+                                        color={darkMode ? "#FEFAE0" : "#0D0701"}
+                                        type="instagram"
+                                        className="size-20 cursor-pointer"
+                                    />
+                                </a>
+                                <a
+                                    className="cursor-pointer"
+                                    href="mailto:mounirwebdevcode@gmail.com"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <Svg
+                                        color={darkMode ? "#FEFAE0" : "#0D0701"}
+                                        type="mail"
+                                        className="size-20 cursor-pointer"
                                     />
                                 </a>
                             </div>
                             <div {...mouseEvents(updateMouseAnim)}>
-                                <p className="pb-5 text-small font-light">
+                                <p className="pb-5 text-smaller lg:text-small">
                                     &copy; {currentYear} Mounir Front-end
                                     Developer
                                 </p>
