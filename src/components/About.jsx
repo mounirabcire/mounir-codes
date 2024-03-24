@@ -74,14 +74,14 @@ function About({ updateMouseAnim }) {
                             className="mx-auto lg:max-w-[848px]"
                         >
                             <p className="font-light leading-[180%]">
-                                Hey there, I'm Mounir – your go-to web designer
-                                and React front-end developer. 🚀 Specializing
-                                in crafting stunning landing pages, websites,
-                                and dynamic front-end applications, for
-                                businesses around the globe. If you need a
-                                modern and powerful website, send me an email.
-                                if we are a good fit, I will give you a time and
-                                cost estimate
+                                Hello, I'm Mounir, a web designer, React
+                                front-end developer, and content creator. I
+                                specialize in creating stunning landing pages,
+                                websites, and dynamic front-end applications for
+                                businesses worldwide. If you're looking for a
+                                modern and impactful website, feel free to email
+                                me. If we are a good fit, I'll provide a time
+                                and cost estimate for your project.
                             </p>
                         </div>
                     </div>
@@ -208,11 +208,12 @@ function About({ updateMouseAnim }) {
                                     front-end development
                                 </h4>
                                 <p className="font-light leading-[180%]">
-                                    I build websites in Webflow where I can
-                                    create responsive, powerful and fully custom
-                                    websites. Plus, Webflow has an incredibly
-                                    simple Content Editor for you and your team
-                                    to edit website content quickly and easily.
+                                    I create websites from scratch, making them
+                                    responsive, powerful, and completely unique.
+                                    My goal is to ensure everything looks
+                                    fantastic and operates seamlessly, so you
+                                    can enjoy using your websites without any
+                                    problems!
                                 </p>
                                 <div className="flex items-center justify-center">
                                     <TechList tech={p_skills} />
