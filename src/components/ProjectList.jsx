@@ -4,7 +4,7 @@ import ProjectItem from "./ProjectItem";
 const projects = [
     {
         name: "myBanki",
-        imgSrc: "../../public/assets/myBanki.png",
+        imgSrc: "myBanki.webp",
         description:
             "myBanki is a fun project that simulates an online banking platform. It consists of a static webpage providing bank information such as features and pricing, along with a user-friendly dashboard where users can view their balance and perform various actions.",
         github: "https://github.com/mounirabcire/myBanki",
@@ -13,7 +13,7 @@ const projects = [
     },
     {
         name: "adventureMemo",
-        imgSrc: "../../public/assets/adventureMemo.png",
+        imgSrc: "adventureMemo.webp",
         description:
             "adventureMemo is a simple React web application that allows users to manage their adventure memories.",
         github: "https://github.com/mounirabcire/adventureMemo",

@@ -1,16 +1,15 @@
-import { useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMouseAnimation } from "./hooks/useMouseAnimation";
 import { useMousePosition } from "./hooks/useMousePosition";
 import { mouseEvents } from "./utils/animations";
+import { useDarkMode } from "./contexts/DarkModeContexte";
 
 import Homepage from "./pages/Homepage";
 import Projects from "./pages/Projects";
-import nightSvg from "../public/assets/night.svg";
-import lightSvg from "../public/assets/brightness.svg";
+import nightSvg from "/night.svg";
+import lightSvg from "/brightness.svg";
 import Contact from "./pages/Contact";
-import { useDarkMode } from "./contexts/DarkModeContexte";
 
 function App() {
     const location = useLocation();
