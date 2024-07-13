@@ -34,46 +34,6 @@ export const expand = {
     },
 };
 
-export const balanceParent = {
-    initial: {
-        y: 0,
-    },
-    animate: {
-        y: 0,
-        transition: {
-            when: "beforeChildren",
-            staggerChildren: 0.1,
-        },
-    },
-    exit: {
-        y: 0,
-        transition: {
-            when: "beforeChildren",
-            staggerChildren: 0.1,
-        },
-    },
-};
-
-export const balanceChildren = {
-    initial: {
-        y: "200px",
-    },
-    animate: {
-        y: 0,
-        transition: {
-            duration: 0.6,
-            ease: [0.33, 1, 0.68, 1],
-        },
-    },
-    exit: {
-        y: "100px",
-        transition: {
-            duration: 0.6,
-            ease: [1, 0.68, 1, 0.33],
-        },
-    },
-};
-
 // Navbar Component
 export const open = {
     initial: {
@@ -146,4 +106,27 @@ export const enterPage = {
             delay: 0.5,
         },
     },
+};
+
+// Reveal animation
+export const revealAnim = {
+    initial: {
+        scaleX: 1,
+    },
+    animate: {
+        scaleX: 0,
+        transition: {
+            // ease: [0.33, 1, 0.68, 1],
+            ease: [0.85, 0, 0.15, 1],
+            duration: 0.6,
+        },
+    },
+    exit:{
+        scaleX: 1,
+        transition: {
+            // ease: [0.33, 1, 0.68, 1],
+            ease: [0.85, 0, 0.15, 1],
+            duration: 0.6,
+        },
+    }
 };

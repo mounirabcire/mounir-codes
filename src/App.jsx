@@ -1,5 +1,6 @@
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+
 import { useMouseAnimation } from "./hooks/useMouseAnimation";
 import { useMousePosition } from "./hooks/useMousePosition";
 import { mouseEvents } from "./utils/animations";
@@ -10,12 +11,14 @@ import Projects from "./pages/Projects";
 import nightSvg from "/night.svg";
 import lightSvg from "/brightness.svg";
 import Contact from "./pages/Contact";
+import { useIsTouchableDevice } from "./hooks/useIsTouchibleDevice";
 
 function App() {
     const location = useLocation();
     const { darkMode, handleDarkMode } = useDarkMode();
     const { mouseAnim, updateMouseAnim } = useMouseAnimation();
     const [x, y] = useMousePosition();
+    const isTouchable = useIsTouchableDevice();
 
     const animMouse = (variants) => {
         return {
@@ -52,14 +55,17 @@ function App() {
 
     return (
         <div className={`${darkMode && "dark"}`}>
-            <motion.div
-                {...animMouse(mouseMove)}
-                className={`pointer-events-none fixed left-0 top-0 z-50 h-[37px] w-[37px] rounded-full bg-black dark:bg-white`}
-            />
+            {!isTouchable && (
+                <motion.div
+                    {...animMouse(mouseMove)}
+                    className={`pointer-events-none fixed left-0 top-0 z-50 h-[37px] w-[37px] rounded-full bg-black dark:bg-white`}
+                />
+            )}
+
             <div
                 onClick={handleDarkMode}
                 {...mouseEvents(updateMouseAnim)}
-                className="fixed bottom-15 left-10 z-30 flex h-40 w-40 cursor-pointer items-center justify-center rounded-full bg-black dark:bg-white"
+                className=" fixed bottom-15 left-10 z-30 flex h-40 w-40 cursor-pointer items-center justify-center rounded-full bg-black dark:bg-white"
             >
                 <img
                     src={`${darkMode ? lightSvg : nightSvg}`}
@@ -67,7 +73,7 @@ function App() {
                     className="h-auto w-20 cursor-pointer"
                 />
             </div>
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait" initial={false}>
                 <Routes location={location} key={location.pathname}>
                     <Route
                         index

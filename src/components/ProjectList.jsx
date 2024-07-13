@@ -1,10 +1,36 @@
 import ProjectItem from "./ProjectItem";
 
-// "A banking application that allows users to create accounts, deposit and withdraw money.",
 const projects = [
     {
+        name: "MovieSpot",
+        imgSrc: "movies-spot.jpg",
+        description:
+            "MovieSpot is a movie app that allows users to watch movies and TV shows",
+        github: "https://github.com/mounirabcire/moviespot",
+        live: "https:/moviesspot.vercel.app/",
+        tech: ["HTML", "CSS", "SASS", "React", "Framer Motion"],
+    },
+    {
+        name: "natours",
+        imgSrc: "natours.jpg",
+        description:
+            "The Natours landing page is a beautiful, interactive website that promotes nature and adventure tours for nature and adventure lovers.",
+        github: "https://github.com/mounirabcire/natours",
+        live: "https://natou-rs.vercel.app/",
+        tech: ["HTML", "CSS", "SASS"],
+    },
+    {
+        name: "nexter",
+        imgSrc: "nexter.jpg",
+        description:
+            "nexter is a simple landing page for selling luxury homes.",
+        github: "https://github.com/mounirabcire/nexter",
+        live: "https:/next-er.vercel.app/",
+        tech: ["HTML", "CSS", "SASS"],
+    },
+    {
         name: "myBanki",
-        imgSrc: "myBanki.webp",
+        imgSrc: "myBanki.jpg",
         description:
             "myBanki is a fun project that simulates an online banking platform. It consists of a static webpage providing bank information such as features and pricing, along with a user-friendly dashboard where users can view their balance and perform various actions.",
         github: "https://github.com/mounirabcire/myBanki",
@@ -12,19 +38,18 @@ const projects = [
         tech: ["HTML", "CSS", "tailwindcss", "React", "Framer Motion"],
     },
     {
-        name: "adventureMemo",
-        imgSrc: "adventureMemo.webp",
-        description:
-            "adventureMemo is a simple React web application that allows users to manage their adventure memories.",
-        github: "https://github.com/mounirabcire/adventureMemo",
-        live: "https://github.com/mounirabcire/adventureMemo",
-        tech: ["HTML", "CSS", "tailwindcss", "React", "React Leaflet"],
+        name: "trillo",
+        imgSrc: "trillo.jpg",
+        description: "trillo is a simple one-page hotel booking landing page.",
+        github: "https://github.com/mounirabcire/trillo",
+        live: "https:/trillo-sable.vercel.app/",
+        tech: ["HTML", "CSS", "SASS"],
     },
 ];
 
 function ProjectList({ updateMouseAnim }) {
     return (
-        <div className="space-y-10 text-start text-white">
+        <div className="grid grid-cols-1 gap-4 text-start text-black dark:text-white lg:grid-cols-2">
             {projects.map((project, i) => (
                 <ProjectItem
                     project={project}

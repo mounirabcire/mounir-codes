@@ -4,13 +4,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
     anim,
     expand,
-    balanceChildren,
-    balanceParent,
     mouseEvents,
 } from "../utils/animations";
 
 import Container from "./Container";
 import NavBar from "./NavBar";
+import Reveal from "./Reveal";
 
 const letters = ["front-end", "web-designer", "freelancer", "content-creator"];
 
@@ -19,10 +18,7 @@ function Header({ updateMouseAnim }) {
 
     //  When the currentLetter is 4 it'll set immdediatly to 0,
     // Because of the condition of the useEffect()
-    const letter =
-        currentLetter === 4
-            ? letters[0].split("")
-            : letters[currentLetter].split("");
+    const letter = currentLetter === 4 ? letters[0] : letters[currentLetter];
 
     useEffect(() => {
         let set;
@@ -56,21 +52,11 @@ function Header({ updateMouseAnim }) {
                         </div>
                         <div>
                             <AnimatePresence mode="wait">
-                                <motion.p
-                                    {...anim(balanceParent)}
-                                    key={currentLetter}
-                                    className="overflow-hidden text-smaller tracking-[10px] lg:text-small"
-                                >
-                                    {letter.map((char, i) => (
-                                        <motion.span
-                                            key={i}
-                                            variants={balanceChildren}
-                                            className="inline-block"
-                                        >
-                                            {char}
-                                        </motion.span>
-                                    ))}
-                                </motion.p>
+                                <Reveal key={currentLetter}>
+                                    <p className="overflow-hidden text-smaller font-medium tracking-[10px] lg:text-small">
+                                        {letter}
+                                    </p>
+                                </Reveal>
                             </AnimatePresence>
                         </div>
                     </div>

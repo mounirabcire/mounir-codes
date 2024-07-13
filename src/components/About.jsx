@@ -3,18 +3,21 @@ import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { anim, mouseEvents } from "../utils/animations";
 
+import { useDarkMode } from "../contexts/DarkModeContexte";
+
 import Container from "./Container";
 import TechList from "./TechList";
 import Svg from "./Svg";
-import { useDarkMode } from "../contexts/DarkModeContexte";
 
 const p_skills = [
     "HTML",
     "CSS",
+    "SASS",
     "tailwindcss",
     "JavaScript",
     "React",
     "Framer Motion",
+    "GSAP"
 ];
 const d_skills = ["Figma"];
 
@@ -69,6 +72,7 @@ function About({ updateMouseAnim }) {
                                 who am i
                             </h1>
                         </div>
+
                         <div
                             {...mouseEvents(updateMouseAnim)}
                             className="mx-auto lg:max-w-[848px]"
@@ -181,6 +185,7 @@ function About({ updateMouseAnim }) {
                                 what i do
                             </h1>
                         </div>
+
                         <div
                             {...mouseEvents(updateMouseAnim)}
                             className="space-y-40"
@@ -189,6 +194,7 @@ function About({ updateMouseAnim }) {
                                 <h4 className="subHead inline-block capitalize">
                                     web design
                                 </h4>
+
                                 <p className="font-light leading-[180%]">
                                     I design beautiful and powerful websites for
                                     modern businesses. Any business today needs
@@ -207,6 +213,7 @@ function About({ updateMouseAnim }) {
                                 <h4 className="subHead inline-block capitalize">
                                     front-end development
                                 </h4>
+
                                 <p className="font-light leading-[180%]">
                                     I create websites from scratch, making them
                                     responsive, powerful, and completely unique.
@@ -215,6 +222,7 @@ function About({ updateMouseAnim }) {
                                     can enjoy using your websites without any
                                     problems!
                                 </p>
+
                                 <div className="flex items-center justify-center">
                                     <TechList tech={p_skills} />
                                 </div>

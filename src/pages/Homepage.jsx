@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 
+import { anim, enterPage } from "../utils/animations";
+
 import About from "../components/About";
 import Header from "../components/Header";
 import PageTransition from "../components/PageTransition";
-import { anim, enterPage } from "../utils/animations";
 import Footer from "../components/Footer";
 
 function Homepage({ updateMouseAnim }) {

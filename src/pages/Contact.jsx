@@ -64,17 +64,17 @@ function Contact({ updateMouseAnim }) {
                 <Container>
                     <section className="space-y-40 text-center text-black dark:text-white">
                         <div className="space-y-10">
-                            <div
-                                {...mouseEvents(updateMouseAnim)}
-                                className="relative inline-block uppercase"
-                            >
-                                <h1 className="relative z-10 text-[60px] font-light sm:text-[75px] lg:text-xl 2xl:text-2xl">
-                                    contact
-                                </h1>
-                                <h1 className="absolute left-10 top-5 w-full text-[60px] font-light text-brown-light dark:text-brown-dark sm:text-[75px] lg:top-10 lg:text-xl 2xl:left-20  2xl:text-2xl">
-                                    contact
-                                </h1>
-                            </div>
+                                <div
+                                    {...mouseEvents(updateMouseAnim)}
+                                    className="relative inline-block uppercase"
+                                >
+                                    <h1 className="relative z-10 text-[60px] font-light sm:text-[75px] lg:text-xl 2xl:text-2xl">
+                                        contact
+                                    </h1>
+                                    <h1 className="absolute left-10 top-5 w-full text-[60px] font-light text-brown-light dark:text-brown-dark sm:text-[75px] lg:top-10 lg:text-xl 2xl:left-20  2xl:text-2xl">
+                                        contact
+                                    </h1>
+                                </div>
                             <form
                                 {...mouseEvents(updateMouseAnim)}
                                 onSubmit={sendEmail}
