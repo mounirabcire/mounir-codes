@@ -5,20 +5,21 @@ import { useMouseAnimation } from "./hooks/useMouseAnimation";
 import { useMousePosition } from "./hooks/useMousePosition";
 import { mouseEvents } from "./utils/animations";
 import { useDarkMode } from "./contexts/DarkModeContexte";
+import { useIsTouchDevice } from "./hooks/useIsTouchDevice";
 
 import Homepage from "./pages/Homepage";
 import Projects from "./pages/Projects";
 import nightSvg from "/night.svg";
 import lightSvg from "/brightness.svg";
 import Contact from "./pages/Contact";
-import { useIsTouchableDevice } from "./hooks/useIsTouchibleDevice";
+
 
 function App() {
     const location = useLocation();
     const { darkMode, handleDarkMode } = useDarkMode();
     const { mouseAnim, updateMouseAnim } = useMouseAnimation();
     const [x, y] = useMousePosition();
-    const isTouchable = useIsTouchableDevice();
+    const isTouchable = useIsTouchDevice();
 
     const animMouse = (variants) => {
         return {
@@ -61,7 +62,6 @@ function App() {
                     className={`pointer-events-none fixed left-0 top-0 z-50 h-[37px] w-[37px] rounded-full bg-black dark:bg-white`}
                 />
             )}
-
             <div
                 onClick={handleDarkMode}
                 {...mouseEvents(updateMouseAnim)}

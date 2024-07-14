@@ -17,7 +17,7 @@ const p_skills = [
     "JavaScript",
     "React",
     "Framer Motion",
-    "GSAP"
+    "GSAP",
 ];
 const d_skills = ["Figma"];
 
@@ -39,20 +39,32 @@ function About({ updateMouseAnim }) {
 
     const showSMParent = {
         initial: { x: 0 },
-        amimate: { x: 0 },
-        transition: {
-            when: "beforeChildren",
-            staggerChildren: 0.2,
+        amimate: {
+            x: 0,
+            transition: {
+                when: "beforeChildren",
+                staggerChildren: 1,
+            },
         },
     };
 
     const showSMChildren = {
         initial: { x: 100, opacity: 0 },
-        animate: { x: 0, opacity: 1 },
-        exit: { x: -100, opacity: 0 },
-        transition: {
-            ease: [0.33, 1, 0.68, 1],
-            duration: 0.6,
+        animate: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                ease: [0.33, 1, 0.68, 1],
+                duration: 0.4,
+            },
+        },
+        exit: {
+            x: -100,
+            opacity: 0,
+            transition: {
+                ease: [0.33, 1, 0.68, 1],
+                duration: 0.6,
+            },
         },
     };
 
@@ -118,7 +130,7 @@ function About({ updateMouseAnim }) {
                                         <motion.a
                                             {...anim(showSMChildren)}
                                             className="mx-auto inline-block cursor-pointer"
-                                            href="https://github.com/mounirabcire"
+                                            href="mailto:mounirwebdevcode@gmail.com"
                                             target="_blank"
                                             rel="noreferrer"
                                         >
@@ -128,7 +140,7 @@ function About({ updateMouseAnim }) {
                                                         ? "#FEFAE0"
                                                         : "#0D0701"
                                                 }
-                                                type="github"
+                                                type="mail"
                                                 className="size-20 cursor-pointer"
                                             />
                                         </motion.a>
@@ -152,7 +164,7 @@ function About({ updateMouseAnim }) {
                                         <motion.a
                                             {...anim(showSMChildren)}
                                             className="mx-auto inline-block cursor-pointer"
-                                            href="mailto:mounirwebdevcode@gmail.com"
+                                            href="https://github.com/mounirabcire"
                                             target="_blank"
                                             rel="noreferrer"
                                         >
@@ -162,7 +174,7 @@ function About({ updateMouseAnim }) {
                                                         ? "#FEFAE0"
                                                         : "#0D0701"
                                                 }
-                                                type="mail"
+                                                type="github"
                                                 className="size-20 cursor-pointer"
                                             />
                                         </motion.a>
