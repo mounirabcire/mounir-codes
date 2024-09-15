@@ -40,8 +40,8 @@ function App() {
             },
         },
         in: {
-            left: x - 100 / 2 + "px",
-            top: y - 100 / 2 + "px",
+            left: x - 150 / 2 + "px",
+            top: y - 150 / 2 + "px",
             opacity: 1,
             width: "100px",
             height: "100px",
