@@ -7,7 +7,7 @@ const projects = [
         description:
             "MovieSpot is a movie app that allows users to watch movies and TV shows",
         github: "https://github.com/mounirabcire/moviespot",
-        live: "https:/moviesspot.vercel.app/",
+        live: "https:/moviesspot.vercel.app",
         tech: ["HTML", "CSS", "SASS", "React", "Framer Motion"],
     },
     {
@@ -16,7 +16,7 @@ const projects = [
         description:
             "The Natours landing page is a beautiful, interactive website that promotes nature and adventure tours for nature and adventure lovers.",
         github: "https://github.com/mounirabcire/natours",
-        live: "https://natou-rs.vercel.app/",
+        live: "https://natou-rs.vercel.app",
         tech: ["HTML", "CSS", "SASS"],
     },
     {
@@ -25,7 +25,7 @@ const projects = [
         description:
             "nexter is a simple landing page for selling luxury homes.",
         github: "https://github.com/mounirabcire/nexter",
-        live: "https:/next-er.vercel.app/",
+        live: "https:/next-er.vercel.app",
         tech: ["HTML", "CSS", "SASS"],
     },
     {
@@ -34,7 +34,7 @@ const projects = [
         description:
             "myBanki is a fun project that simulates an online banking platform. It consists of a static webpage providing bank information such as features and pricing, along with a user-friendly dashboard where users can view their balance and perform various actions.",
         github: "https://github.com/mounirabcire/myBanki",
-        live: "https://my-banki.vercel.app/",
+        live: "https://my-banki.vercel.app",
         tech: ["HTML", "CSS", "tailwindcss", "React", "Framer Motion"],
     },
     {
@@ -42,7 +42,7 @@ const projects = [
         imgSrc: "trillo.jpg",
         description: "trillo is a simple one-page hotel booking landing page.",
         github: "https://github.com/mounirabcire/trillo",
-        live: "https:/trillo-sable.vercel.app/",
+        live: "https:/trillo-sable.vercel.app",
         tech: ["HTML", "CSS", "SASS"],
     },
 ];

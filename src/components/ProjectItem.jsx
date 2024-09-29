@@ -19,7 +19,7 @@ function ProjectItem({ project, updateMouseAnim }) {
                     href={live}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex h-[35px] w-auto cursor-pointer items-center justify-center rounded-sm bg-brown-light px-15 font-semibold text-white dark:bg-brown-dark"
+                    className="flex h-[35px] w-auto cursor-pointer items-center justify-center rounded-sm bg-brown-light px-15  text-white dark:bg-brown-dark"
                 >
                     go live
                 </a>
@@ -27,7 +27,7 @@ function ProjectItem({ project, updateMouseAnim }) {
                     href={github}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex h-[35px] w-auto cursor-pointer items-center justify-center rounded-sm border-2 border-brown-light px-15 font-semibold text-brown-light dark:border-brown-dark dark:text-brown-dark"
+                    className="flex h-[35px] w-auto cursor-pointer items-center justify-center rounded-sm border-2 border-brown-light px-15  text-brown-light dark:border-brown-dark dark:text-brown-dark"
                 >
                     see code
                 </a>
