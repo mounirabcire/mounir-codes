@@ -25,7 +25,7 @@ const projects = [
         description:
             "nexter is a simple landing page for selling luxury homes.",
         github: "https://github.com/mounirabcire/nexter",
-        live: "https:/next-er.vercel.app",
+        live: "https://next-er.vercel.app",
         tech: ["HTML", "CSS", "SASS"],
     },
     {
