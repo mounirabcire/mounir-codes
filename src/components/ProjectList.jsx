@@ -7,7 +7,7 @@ const projects = [
         description:
             "MovieSpot is a movie app that allows users to watch movies and TV shows",
         github: "https://github.com/mounirabcire/moviespot",
-        live: "https:/moviesspot.vercel.app",
+        live: "https://moviesspot.vercel.app",
         tech: ["HTML", "CSS", "SASS", "React", "Framer Motion"],
     },
     {
@@ -42,7 +42,7 @@ const projects = [
         imgSrc: "trillo.jpg",
         description: "trillo is a simple one-page hotel booking landing page.",
         github: "https://github.com/mounirabcire/trillo",
-        live: "https:/trillo-sable.vercel.app",
+        live: "https://trillo-sable.vercel.app",
         tech: ["HTML", "CSS", "SASS"],
     },
 ];
